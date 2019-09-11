@@ -24,7 +24,6 @@ RUN set -eux; \
       rm -rf /var/lib/apt/lists/*
 
 COPY --from=cbuilder /set_ambient /
-# COPY doesn't seem to respect file attributes, so need to set again
 RUN setcap cap_net_bind_service+p /set_ambient
 COPY --from=gobuilder /go/server /
 
