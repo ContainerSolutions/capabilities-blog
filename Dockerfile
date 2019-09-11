@@ -15,7 +15,7 @@ FROM golang:1.13 as gobuilder
 COPY server.go /go/
 RUN go build server.go
 
-
+# Build main image
 FROM debian:buster
 
 RUN set -eux; \
